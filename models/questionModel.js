@@ -18,3 +18,6 @@ const questionSchema = new mongoose.Schema({
       required: [true, "Section of the question (idea, marketing, monetization, etc)"]
   }
 });
+
+const Question = mongoose.model('Question', questionSchema);
+module.exports = Question;
