@@ -1,6 +1,12 @@
 const express = require("express");
+const questionController = require("../services/question/questionController");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("route question working");
-});
+router.get("/", questionController.getAll);
+router.get("/:filter", questionController.getOne);
+
+router.post("/", questionController.create);
+
+router.delete("/:filter", questionController.deleteOne);
+
+module.exports = router;
