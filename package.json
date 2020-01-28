@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "start": "nodemon ./app.js"
   },
   "author": "caick",
   "license": "ISC",
@@ -12,7 +12,9 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.8.7"
+    "joi": "^14.3.1",
+    "mongoose": "^5.8.9"
   }
 }

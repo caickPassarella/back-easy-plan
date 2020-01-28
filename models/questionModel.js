@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
+  planType: {
+    type: String,
+    required: [true, "type of the plan"]
+  },
   title: {
     type: String,
     required: [true, "Title of the question"]
@@ -10,12 +14,12 @@ const questionSchema = new mongoose.Schema({
     required: [false, "Description of the question"]
   },
   category: {
-      type: String,
-      required: [true, "Category of the question (textArea, simpleInput, dropdown, select, etc)"]
+    component: { type: String, required: [true, "The component type, like textArea, simpleInput, radioButton, etc"] },
+    values: { type: Array, required: [true, "Value of the component"] }
   },
   section: {
-      type: String,
-      required: [true, "Section of the question (idea, marketing, monetization, etc)"]
+    type: String,
+    required: [true, "Section of the question (idea, marketing, monetization, etc)"]
   }
 });
 
