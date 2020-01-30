@@ -3,15 +3,22 @@ const mongoose = require("mongoose");
 const QuestionRoutes = require("./routes/question");
 const config = require("./config");
 
+const connect = async (database) => {
+    try {
+        await mongoose.connect(database, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useUnifiedTopology: true
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
 const PORT = config.PORT;
 const database = config.DATABASE.replace('<PASSWORD>', config.DATABASE_PASSWORD);
-
-mongoose.connect(database, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-});
-
+connect(database);
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

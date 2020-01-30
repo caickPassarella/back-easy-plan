@@ -34,12 +34,30 @@ const create = async (req, res, next) => {
 
 const getOne = async (req, res, next) => {
     try {
-        const question = await questionRepository.getOne(req.params.filter);
+        const question = await questionRepository.getOne(req.params.id);
 
         if (!question) {
             console.error("Error while trying to get the question");
             return next();
         }
+        res.status(200).json({
+            status: "success",
+            question
+        });
+    }
+    catch (error) {
+        next(error);
+    }
+}
+
+const deleteOne = async (req, res, next) => {
+    try {
+        const question = await questionRepository.deleteOne(req.params.id);
+
+        if (!question) {
+            console.error("No dodument with that id was found");
+            return next();
+        };
         res.status(200).json({
             status: "success",
             question: null
@@ -50,23 +68,22 @@ const getOne = async (req, res, next) => {
     }
 }
 
-const deleteOne = async (req, res, next) => {
-    try {
-        const question = await questionRepository.deleteOne(req.params.filter);
-
-        if (!question) {
-            console.error("No dodument with that id was found")
-            return next()
-        }
-    }
-    catch (error) {
-        next(error);
-    }
+const deleteAll = async (req, res, next) => {
+    const question = await questionRepository.deleteAll();
+    if (!question) {
+        console.error("There is no documento to delete");
+        return next();
+    };
+    res.status(200).json({
+        status: "sucess",
+        question: null
+    });
 }
 
 module.exports = {
     getAll,
     create,
     getOne,
-    deleteOne
+    deleteOne,
+    deleteAll
 };

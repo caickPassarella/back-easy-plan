@@ -21,7 +21,7 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: [true, "Section of the question (idea, marketing, monetization, etc)"]
   }
-});
+}, { versionKey: false });
 
 const Question = mongoose.model('Question', questionSchema);
 module.exports = Question;
