@@ -37,7 +37,7 @@ const getOne = async (req, res, next) => {
         const question = await questionRepository.getOne(req.params.id);
 
         if (!question) {
-            console.error("Error while trying to get the question");
+            console.error("No dodument with that id was found");
             return next();
         }
         res.status(200).json({
@@ -68,6 +68,42 @@ const deleteOne = async (req, res, next) => {
     }
 }
 
+const updateOne = async (req, res, next) => {
+    try {
+        const question = await questionRepository.updateOne(req.params.id);
+
+        if (!question) {
+            console.error("No dodument with that id was found");
+            return next();
+        };
+        res.status(200).json({
+            status: "success",
+            question
+        });
+    }
+    catch (error) {
+        next(error);
+    }
+}
+
+const updateAll = async (req, res, next) => {
+    try {
+        const question = await questionRepository.deleteAll();
+
+        if (!question) {
+            console.error("There's no document to update");
+            return next();
+        };
+        res.status(200).json({
+            status: "success",
+            question: null
+        });
+    }
+    catch (error) {
+        next(error);
+    }
+}
+
 const deleteAll = async (req, res, next) => {
     const question = await questionRepository.deleteAll();
     if (!question) {
@@ -84,6 +120,8 @@ module.exports = {
     getAll,
     create,
     getOne,
+    updateOne,
+    updateAll,
     deleteOne,
     deleteAll
 };
