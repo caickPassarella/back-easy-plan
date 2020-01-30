@@ -12,8 +12,16 @@ async function getOne(_id) {
     return await questionModel.findById(_id);
 }
 
-async function deleteOne(category) {
-    return await questionModel.findOneAndDelete(category);
+async function updateOne(_id) {
+    return await questionModel.findByIdAndUpdate(_id)
+}
+
+async function updateAll() {
+    return await questionModel.updateMany();
+}
+
+async function deleteOne(_id) {
+    return await questionModel.findOneAndDelete(_id);
 }
 
 async function deleteAll() {
@@ -24,6 +32,8 @@ module.exports = {
     create,
     getAll,
     getOne,
+    updateOne,
+    updateAll,
     deleteOne,
     deleteAll
 };
