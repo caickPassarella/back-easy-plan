@@ -88,7 +88,7 @@ const updateOne = async (req, res, next) => {
 
 const updateAll = async (req, res, next) => {
     try {
-        const question = await questionRepository.deleteAll();
+        const question = await questionRepository.updateAll();
 
         if (!question) {
             console.error("There's no document to update");
