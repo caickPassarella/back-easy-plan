@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const questionSchema = new mongoose.Schema({
   planType: {
     type: String,
+    enum: "single-page, complete, custom",
     required: [true, "type of the plan"]
   },
   title: {
