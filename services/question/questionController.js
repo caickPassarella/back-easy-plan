@@ -10,7 +10,7 @@ const getAll = async (req, res, next) => {
         }
         res.status(200).json({
             status: "success",
-            data: question
+            question
         });
     }
     catch (error) {
@@ -24,7 +24,7 @@ const create = async (req, res, next) => {
 
         res.status(201).json({
             status: "success",
-            data: question
+            question
         });
     }
     catch (error) {
@@ -42,7 +42,7 @@ const getOne = async (req, res, next) => {
         }
         res.status(200).json({
             status: "success",
-            data: question
+            question
         });
     }
     catch (error) {
@@ -55,12 +55,12 @@ const deleteOne = async (req, res, next) => {
         const question = await questionRepository.deleteOne(req.params.id);
 
         if (!question) {
-            console.error("No dodument with that id was found");
+            console.error("No document with that id was found");
             return next();
         };
         res.status(200).json({
             status: "success",
-            data: null
+            question: null
         });
     }
     catch (error) {
@@ -78,7 +78,7 @@ const updateOne = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            data: question
+            question
         });
     }
     catch (error) {
@@ -96,7 +96,7 @@ const updateAll = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            data: null
+            question: null
         });
     }
     catch (error) {
@@ -112,7 +112,7 @@ const deleteAll = async (req, res, next) => {
     };
     res.status(200).json({
         status: "sucess",
-        data: null
+        question: null
     });
 }
 

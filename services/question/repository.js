@@ -21,7 +21,7 @@ async function updateAll() {
 }
 
 async function deleteOne(_id) {
-    return await questionModel.findOneAndDelete(_id);
+    return await questionModel.deleteOne({_id});
 }
 
 async function deleteAll() {
