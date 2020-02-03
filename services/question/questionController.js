@@ -10,7 +10,7 @@ const getAll = async (req, res, next) => {
         }
         res.status(200).json({
             status: "success",
-            question
+            data: question
         });
     }
     catch (error) {
@@ -24,7 +24,7 @@ const create = async (req, res, next) => {
 
         res.status(201).json({
             status: "success",
-            question
+            data: question
         });
     }
     catch (error) {
@@ -42,7 +42,7 @@ const getOne = async (req, res, next) => {
         }
         res.status(200).json({
             status: "success",
-            question
+            data: question
         });
     }
     catch (error) {
@@ -60,7 +60,7 @@ const deleteOne = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            question: null
+            data: null
         });
     }
     catch (error) {
@@ -78,7 +78,7 @@ const updateOne = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            question
+            data: question
         });
     }
     catch (error) {
@@ -96,7 +96,7 @@ const updateAll = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            question: null
+            data: null
         });
     }
     catch (error) {
@@ -112,7 +112,7 @@ const deleteAll = async (req, res, next) => {
     };
     res.status(200).json({
         status: "sucess",
-        question: null
+        data: null
     });
 }
 
