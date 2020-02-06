@@ -15,14 +15,12 @@ const questionSchema = new mongoose.Schema(
       type: String,
       required: [false, "Description of the question"]
     },
-    category: {
-      component: {
-        type: String,
-        required: [true, "The component type, like textArea, simpleInput, radioButton, etc"],
-        enum: ["textArea", "radioButton", "simpleInput", "checkbox"]
-      },
-      values: { type: Array, required: [true, "Value of the component"] }
+    component: {
+      type: String,
+      required: [true, "The component type, like textArea, simpleInput, radioButton, etc"],
+      enum: ["textArea", "radioButton", "simpleInput", "checkbox"]
     },
+    values: { type: Array, required: [true, "Value of the component"] },
     section: {
       type: String,
       required: [
