@@ -4,7 +4,7 @@ const questionSchema = new mongoose.Schema(
   {
     planType: {
       type: String,
-      enum: ["single-page", "complete", "custom"],
+      enum: ["single-page", "multi-page", "custom"],
       required: [true, "type of the plan"]
     },
     title: {

@@ -1,16 +1,16 @@
 const express = require("express");
-const questionController = require("../services/question/questionController");
+const { getAll, getOne, updateAll, updateOne, deleteAll, deleteOne, create } = require("../services/question/questionController");
 const router = express.Router();
 
-router.get("/", questionController.getAll);
-router.get("/:id", questionController.getOne);
+router.get("/", getAll);
+router.get("/:id", getOne);
 
-router.put("/", questionController.updateAll);
-router.put("/:id", questionController.updateOne);
+router.put("/", updateAll);
+router.put("/:id", updateOne);
 
-router.delete("/", questionController.deleteAll);
-router.delete("/:id", questionController.deleteOne);
+router.delete("/", deleteAll);
+router.delete("/:id", deleteOne);
 
-router.post("/", questionController.create);
+router.post("/", create);
 
 module.exports = router;
