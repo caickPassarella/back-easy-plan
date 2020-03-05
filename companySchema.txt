@@ -1,0 +1,26 @@
+###Questions
+
+##Company
+Name,
+Description (business summary),
+Market segment.
+
+
+##Team
+Key leaders
+Members of the team (if too large, maybe add just some key members),
+Description of team members (if too large, maybe add just for the leaders),
+
+
+##Idea
+Name and description of your product/service
+
+
+##Market
+Size of the market,
+Who is your customer? (age, location, gender, income, etc)
+
+
+#Technical stuff
+Since many entrepeneurs will not know how to answer all questions perfectly,
+there should be a way to at least save his progress on the platform (automatically or not)
